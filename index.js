@@ -66,7 +66,11 @@ function propsStringer (object) {
       props += `${info.name}: '${value}'`
 
     } else {
-      props += `${info.name}: ${value}`
+      try {
+        props += `${info.name}: ${value}`
+      } catch (e) {
+        props += `${info.name}: {}`
+      }
     }
   })
 
