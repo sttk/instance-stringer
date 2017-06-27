@@ -43,6 +43,7 @@ describe('instance-stringer', () => {
         "e: { l: { m: { n: {} } } } " +
         "}")
     })
+
   })
 
 
