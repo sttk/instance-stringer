@@ -49,7 +49,7 @@ class MyClass {
   }
 }
 
-conat myInstance = new MyClass()
+const myInstance = new MyClass()
 
 stringer(myInstnace)
 // => "MyClass { a: 123, b: { c: 'A', d: [{ g: 1, h: 2 }, 3], e: SubClass { p: 1, q: 2 } } }"
