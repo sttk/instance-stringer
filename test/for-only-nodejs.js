@@ -6,6 +6,7 @@
 const instanceStringer = require('../')
 const chai = require('chai')
 const expect = chai.expect
+const semver = require('semver')
 
 describe('Tests for only nodejs', () => {
 
@@ -18,10 +19,17 @@ describe('Tests for only nodejs', () => {
       }
     }
     const a = new A()
-    expect(instanceStringer(a)).to.equal('A { event: EventEmitter {' +
-    ' domain: null, _events: {}, _eventsCount: 0, ' +
-    '_maxListeners: undefined ' +
-    '} }')
+    if (semver.lt(process.version, '9.0.0')) {
+      expect(instanceStringer(a)).to.equal('A { event: EventEmitter { ' +
+      'domain: null, _events: {}, _eventsCount: 0, ' +
+      '_maxListeners: undefined ' +
+      '} }')
+    } else {
+      expect(instanceStringer(a)).to.equal('A { event: EventEmitter { ' +
+      '_events: {}, _eventsCount: 0, ' +
+      '_maxListeners: undefined ' +
+      '} }')
+    }
   })
 
 })
