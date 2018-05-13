@@ -1,10 +1,7 @@
 'use strict'
 
-/* global describe it */
-/* eslint quotes: "off" */
-
 const instanceStringer = require('../')
-const arrayStringer = instanceStringer.arrayStringer
+const { arrayStringer } = instanceStringer
 
 const chai = require('chai')
 const expect = chai.expect

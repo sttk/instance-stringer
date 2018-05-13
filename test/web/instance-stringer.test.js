@@ -1,9 +1,6 @@
 {
 'use string'
 
-/* global describe it */
-/* eslint quotes: "off" */
-
 
 
 const expect = chai.expect

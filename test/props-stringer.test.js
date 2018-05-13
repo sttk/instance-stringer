@@ -1,10 +1,7 @@
 'use string'
 
-/* global describe it */
-/* eslint quotes: "off" */
-
 const instanceStringer = require('../')
-const propsStringer = instanceStringer.propsStringer
+const { propsStringer } = instanceStringer
 const chai = require('chai')
 const expect = chai.expect
 

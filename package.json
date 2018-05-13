@@ -9,9 +9,12 @@
   "scripts": {
     "lint": "eslint .",
     "test": "mocha",
-    "coverage": "istanbul cover _mocha",
-    "coveralls": "istanbul cover _mocha && istanbul-coveralls",
-    "web:build": "browserify index.js --standalone instanceStringer | uglifyjs --compress --mangle -o web/instance-stringer.js && node test/web/make.js"
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
+    "coveralls": "nyc --reporter=text-lcov npm test | coveralls",
+    "web:build": "browserify index.js --standalone instanceStringer -o web/instance-stringer.js && cd web && uglifyjs instance-stringer.js --compress --mangle -o instance-stringer.min.js --source-map url=instance-stringer.min.js.map",
+    "chrome:install": "npm i --no-save mocha-chrome",
+    "chrome:test": "mocha-chrome test/web/browser-test.html",
+    "build": "npm run lint && npm run coverage && npm run web:build && node test/web/make.js"
   },
   "repository": {
     "type": "git",
@@ -35,13 +38,13 @@
     "is-plain-object": "^2.0.1"
   },
   "devDependencies": {
-    "browserify": "^14.3.0",
+    "browserify": "^16.2.2",
     "chai": "^3.5.0",
-    "eslint": "^3.19.0",
-    "istanbul": "^0.4.5",
-    "istanbul-coveralls": "^1.0.3",
+    "coveralls": "^3.0.1",
+    "eslint": "^4.19.1",
     "mocha": "^3.2.0",
+    "nyc": "^11.7.3",
     "semver": "^5.5.0",
-    "uglify-js": "github:mishoo/UglifyJS2#harmony"
+    "uglify-es": "^3.3.9"
   }
 }

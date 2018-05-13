@@ -1,8 +1,5 @@
 'use string'
 
-/* global describe it */
-/* eslint quotes: "off" */
-
 const instanceStringer = require('../')
 const chai = require('chai')
 const expect = chai.expect

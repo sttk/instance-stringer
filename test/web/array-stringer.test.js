@@ -1,11 +1,8 @@
 {
 'use strict'
 
-/* global describe it */
-/* eslint quotes: "off" */
 
-
-const arrayStringer = instanceStringer.arrayStringer
+const { arrayStringer } = instanceStringer
 
 
 const expect = chai.expect

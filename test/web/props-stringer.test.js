@@ -1,11 +1,8 @@
 {
 'use string'
 
-/* global describe it */
-/* eslint quotes: "off" */
 
-
-const propsStringer = instanceStringer.propsStringer
+const { propsStringer } = instanceStringer
 
 const expect = chai.expect
 

@@ -8,6 +8,10 @@
     "ecmaVersion": 6,
     "sourceType": "module"
   },
+  "globals": {
+    "describe": true,
+    "it": true,
+  },
   "rules": {
     "array-bracket-spacing": "error",
     "block-spacing": "error",
