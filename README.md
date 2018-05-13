@@ -1,39 +1,36 @@
 # [instance-stringer][repo-url] [![NPM][npm-img]][npm-url] [![MIT License][mit-img]][mit-url] [![Build Status][travis-img]][travis-url] [![Build Status][appveyor-img]][appveyor-url] [![Coverage Status][coverage-img]][coverage-url]
 
-Convert content of a class instance to a string.
-
+Converts a content of a class instance to a string.
 
 ## Install
+
+To install from npm:
 
 ```
 $ npm i instance-stringer --save
 ```
 
+### Load this module
+
+For Node.js
+
+```js
+const instanceStringer = require('instance-stringer')
+const { propsStringer, arrayStringer } = instanceStringer
+```
+
+For Web browser (only supporting es6):
+
+```html
+<script src="instance-stringer.min.js"></script>
+<script>
+const { propsStringer, arrayStringer } = instanceStringer
+</script>
+```
 
 ## Usage
 
-Load instance-stringer module :
-
-```js
-const stringer = require('instance-stringer')
-```
-
-Load props-stringer module and array-stringer module :
-
-```js
-const stringer = require('instance-stringer')
-const propsStringer = stringer.propsStringer
-const arrayStringer = stringer.arrayStringer
-```
-
-or
-
-```js
-const { propsStringer, arrayStringer } = require('instance-stringer')
-```
-
-
-Convert content of the instance of `MyClass` :
+Converts content of the instance of `MyClass` :
 
 ```js
 class SubClass {
@@ -51,10 +48,10 @@ class MyClass {
 
 const myInstance = new MyClass()
 
-stringer(myInstnace)
+instanceStringer(myInstance)
 // => "MyClass { a: 123, b: { c: 'A', d: [{ g: 1, h: 2 }, 3], e: SubClass { p: 1, q: 2 } } }"
 
-propsStringer(myInstnace)
+propsStringer(myInstance)
 // => "{ a: 123, b: { c: 'A', d: [{ g: 1, h: 2 }, 3], e: SubClass { p: 1, q: 2 } } }"
 
 
@@ -64,23 +61,23 @@ arrayStringer(myInstance.b.d)
 
 ## API
 
-### <u>stringer(instance) => string</u>
+### <u>instanceStringer(instance) : string</u>
 
-Convert content of class instance to a string with its class name.
+Converts content of class instance to a string with its class name.
 If the instance is a plain object its class name (`Object`) is not output.
 
-### <u>propsStringer(object) => string</u>
+### <u>propsStringer(object) : string</u>
 
-Convert properties of a plain object or a class instance to a string  without its class name.
+Converts properties of a plain object or a class instance to a string  without its class name.
 
-### <u>arrayStringer(array) => string</u>
+### <u>arrayStringer(array) : string</u>
 
-Convert elements of an array to a string.
+Converts elements of an array to a string.
 
 
 ## License
 
-Copyright (C) 2017 Takayuki sato
+Copyright (C) 2017-2018 Takayuki sato
 
 This program is free software under [MIT][mit-url] License.
 See the file LICENSE in this distribution for more details.
