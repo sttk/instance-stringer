@@ -1,6 +1,6 @@
 {
   "name": "instance-stringer",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Convert content of a class instance to a string.",
   "main": "index.js",
   "files": [
